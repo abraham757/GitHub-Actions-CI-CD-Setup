@@ -1,5 +1,5 @@
 # Name of the GitHub Actions workflow
-name: Deploy
+name: Deploy CI/CD
 
 # Trigger the workflow on push and pull request events to the main branch
 on:
