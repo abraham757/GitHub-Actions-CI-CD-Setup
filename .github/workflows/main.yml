@@ -1,40 +1,26 @@
-# Name of workflow
-name: First workflow
+name: Run Cypress Tests
 
-# Trigger workflow on push to the 'main' branch
 on:
   push:
-    branches:
-      - Develop  
+    branches: [ Develop ]
+  pull_request:
+    branches: [ Develop ]
 
-# Jobs to carry out
 jobs:
-  test:
-    # Operating system to run job on
+  cypress-run:
     runs-on: ubuntu-latest
 
-    # Steps in job
     steps:
-      # Get code from repo
       - name: Checkout code
-        uses: actions/checkout@v2  
+        uses: actions/checkout@v3
 
-      # Use Node.js version 21.x
-      - name: Use Node.js 21.x
-        uses: actions/setup-node@v2 
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
         with:
-          node-version: 21.x
+          node-version: 21 # o tu versión
 
-      # Install dependencies
-      - name: 🧰 Install Deps
+      - name: Install dependencies
         run: npm install
-        
-      # Run build
-      - name: Run Build
-        run: npm run build
 
-      # Run tests
-      - name: Run Tests
+      - name: Run tests
         run: npm run test
-
-     
