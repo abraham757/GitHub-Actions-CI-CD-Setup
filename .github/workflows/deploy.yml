@@ -26,7 +26,7 @@ jobs:
         if: github.ref == 'refs/heads/feature/main'
         # Set an environment variable with the deployment URL from secrets
         env:
-          DEPLOY_URL: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
+          DEPLOY_URL: ${{ secrets.RENDER_DEPLOY_HOOK_URL_CI_CD }}
         # Run the deployment command
         run: |
           curl "$DEPLOY_URL"
