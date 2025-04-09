@@ -4,10 +4,10 @@ name: Deploy
 # Trigger the workflow on push and pull request events to the main branch
 on:
   push:
-    branches: [Develop]
+    branches: [feature/githubAction ]
   pull_request:
     branches:
-      - Develop 
+      - feature/githubAction 
 
 jobs:
   # Define a job named "ci"
@@ -23,10 +23,10 @@ jobs:
        # Define a step named "Deploy"
       - name: Deploy
         # Only run this step if the branch is main a change to feature/githubAction to test
-        if: github.ref == 'refs/heads/feature/main'
+        if: github.ref == 'refs/heads/feature/githubAction'
         # Set an environment variable with the deployment URL from secrets
         env:
-          DEPLOY_URL: ${{ secrets.RENDER_DEPLOY_HOOK_URL_CI_CD }}
+          DEPLOY_URL: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
         # Run the deployment command
         run: |
           curl "$DEPLOY_URL"
