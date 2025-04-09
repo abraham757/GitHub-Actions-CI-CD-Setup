@@ -5,7 +5,7 @@ name: First workflow
 on:
   push:
     branches:
-      - feature/githubAction  
+      - Develop  
 
 # Jobs to carry out
 jobs:
