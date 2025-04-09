@@ -21,10 +21,7 @@ jobs:
       - uses: actions/checkout@v3
 
        # Define a step named "Deploy"
-      - name: Deploy
-        # Only run this step if the branch is main a change to feature/githubAction to test
-        if: github.ref == 'refs/heads/feature/Develop'
-        # Set an environment variable with the deployment URL from secrets
+      - name: Dep
         env:
           DEPLOY_URL: ${{ secrets.RENDER_DEPLOY_HOOK_URL_CI_CD }}
         # Run the deployment command
